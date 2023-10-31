@@ -45,6 +45,6 @@ jobs:
 
       - name: Tag and push Docker image
         run: |
-          docker tag my-react-app ${{ secrets.DOCKERHUB_USERNAME }}/todolist-react:${{ github.run_number }}
+          docker tag todolist-react ${{ secrets.DOCKERHUB_USERNAME }}/todolist-react:${{ github.run_number }}
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/todolist-react:${{ github.run_number }}
   
