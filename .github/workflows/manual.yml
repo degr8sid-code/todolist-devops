@@ -40,11 +40,11 @@ jobs:
     needs: build
 
     steps:
+      - name: Build Docker image
+        run: docker build -t todolist-devops:latest .
+        
       - name: Login to Docker Hub
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-      - name: Tag and push Docker image
-        run: |
-          docker tag todolist-react ${{ secrets.DOCKERHUB_USERNAME }}/todolist-react:${{ github.run_number }}
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/todolist-react:${{ github.run_number }}
-  
+      - name: Push Docker image to Docker Hub
+        run: docker push todolist-devops:latest
