@@ -45,4 +45,4 @@ jobs:
         run: echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
       - name: Push Docker image to Docker Hub
-        run: docker push todolist-devops:latest
+        run: docker push todolist-react:latest
